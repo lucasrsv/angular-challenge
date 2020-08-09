@@ -1,0 +1,77 @@
+$purple-color: #84087E;
+$gray-color: #515151;
+
+.container {
+    margin: 0% 2%;
+    @media (min-width: 768px) {
+        margin: 0% 10%;
+    }
+}
+
+h3 {
+    font-family: rubik-regular;
+    color: $purple-color;
+    font-size: 3em;
+}
+
+input, textarea {
+    display: block;
+    width: 100%;
+    border: 1.3px solid $purple-color;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 120px;
+    padding: 1%;
+    resize: none;
+    font-family: rubik-medium;
+}
+
+input[name="nameInput"] {
+    height: 40px;
+    margin-bottom: 5%;
+}
+
+
+label {
+    display: block;
+    color: $gray-color;
+    font-family: rubik-medium;
+}
+
+button {
+    background-color: $purple-color;
+    color: white;
+    font-family: rubik-medium;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    float: right;
+    margin-top: 10%;
+}
+
+.logo {
+    width: 50%;
+    background-color: $purple-color;
+    background-image: url(../../assets/images/background_grafismos_roxo.svg);
+    background-size: cover;
+    float: right;
+    height: 100%;
+}
+
+.form-size {
+    width: 50%;
+    padding: 2.5% 5%;
+}
+
+.logo-size {
+    width: 50%;
+    padding-right: 5%;
+}
+
+img {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+}

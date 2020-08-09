@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: rubik-medium;
+    src: url(assets/fonts/Rubik/Rubik-Medium.ttf);
+  }
+
+  @font-face {
+    font-family: rubik-regular;
+    src: url(assets/fonts/Rubik/Rubik-Regular.ttf);
+  }
+
+body {
+    margin: 0;
+    padding: 0;
+  }
