@@ -8,9 +8,10 @@ $gray-color: #515151;
 }
 
 h3 {
-    font-family: rubik-regular;
+    font-family: rubik-medium;
     color: $purple-color;
     font-size: 3em;
+    margin-bottom: 5%;
 }
 
 input, textarea {
@@ -90,7 +91,14 @@ img {
 }
 
 
+td {
+    padding-bottom: 2%;
+    width: auto;
+}
 
+td > p {
+    word-break: break-all;
+}
 td > p:first-child {
     font-family: rubik-regular;
     color: $gray-color;
