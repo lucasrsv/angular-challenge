@@ -1,5 +1,4 @@
-<div class="container">
-
+<div class="mainContainer">
     <div fxLayout.xs="column" fxLayout.md="row">
         <div fxShow fxHide.gt-sm fxFlex="100" class="logo-size">
             <div fxLayout="row" fxFlexAlign="end" class="logo">
@@ -12,9 +11,17 @@
             <form #f="ngForm" novalidate [formGroup]="commentsForm" (ngSubmit)="createComment(f)">
                 <label for="name"><p>Nome</p></label>
                 <input formControlName="author" type="string" class="form-control" id="name" name="nameInput">
-                <label for="comment"><p>Comentário</p></label>
+                <ngb-alert *ngIf="commentsForm.get('author').hasError('required') && commentsForm.get('author').touched" 
+                [type]="'warning'" [dismissible]="false" class="alert-warn">
+                    Você precisa colocar seu nome.
+                </ngb-alert>
+                <label name="commentLabel" for="comment"><p>Comentário</p></label>
                 <textarea formControlName="comment" type="string" class="form-control" id="comment"></textarea>
-                <button type="submit">Adicionar</button>
+                <ngb-alert *ngIf="commentsForm.get('comment').hasError('required') && commentsForm.get('comment').touched" 
+                [type]="'warning'" [dismissible]="false" class="alert-warn">
+                    Você precisa colocar um comentário.
+                </ngb-alert>
+                <button type="submit" [disabled]="commentsForm.invalid">Adicionar</button>
             </form>
         </div>
 

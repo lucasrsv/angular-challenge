@@ -11,7 +11,10 @@ import { CommentListComponent } from './comment-list/comment-list.component'
 
 //Firebase and Friestore
 import { AngularFireModule } from '@angular/fire'
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore'
+
+//Bootstrap
+import { NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     FlexLayoutModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgbAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]

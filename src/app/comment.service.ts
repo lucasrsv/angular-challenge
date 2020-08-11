@@ -9,7 +9,8 @@ export class CommentService {
   constructor(private firestore: AngularFirestore) { }
 
   getComments() {
-    return this.firestore.collection('comments').snapshotChanges()
+    return this.firestore.collection('comments', ref =>
+    ref.orderBy('date', 'desc')).snapshotChanges()
   }
 
   createComment(comment: Comment) {
@@ -19,4 +20,5 @@ export class CommentService {
   deleteComment(commentId: String) {
     this.firestore.doc('comments/commentId').delete()
   }
+  
 }

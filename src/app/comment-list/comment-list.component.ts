@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { CommentService } from 'src/app/comment.service'
 import { Comment } from 'src/app/comment.model' 
 
-//Forms
+//Forms and Firebase
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms'
-import { Form } from '../form.model'
+import * as firebase from 'firebase'
 
 @Component({
   selector: 'app-comment-list',
   templateUrl: './comment-list.component.html',
   styleUrls: ['./comment-list.component.scss']
 })
+
 export class CommentListComponent implements OnInit {
 
   comment: Comment
   comments: Comment[]
   commentsForm: FormGroup
-  form: Form
+  @ViewChild('fform') feedbackFormDirective
 
   constructor(private formBuilder: FormBuilder, private commentService: CommentService) { 
     this.createForm()
@@ -28,6 +29,7 @@ export class CommentListComponent implements OnInit {
         return {
           author: e.payload.doc.data(),
           comment: e.payload.doc.data(),
+          date: e.payload.doc.data()
         } as Comment
       })
     )
@@ -35,25 +37,17 @@ export class CommentListComponent implements OnInit {
 
   createForm() {
     this.commentsForm = this.formBuilder.group({
-      author: '',
-      comment: ''
+      author: ['',  Validators.required],
+      comment: ['',  Validators.required],
+      date: firebase.firestore.Timestamp.now()
     })
   }
 
   createComment(f: NgForm) {
-    this.comment = {
-      author:'',
-      comment:''
-    }
-    
-    this.form = this.commentsForm.value
-    this.comment = this.form
+    this.comment = this.commentsForm.value
+    this.comment.date = firebase.firestore.Timestamp.now()
     this.commentService.createComment(this.comment)
     f.resetForm()
+    this.feedbackFormDirective.resetForm()
   }
-  
-  deleteComment(id: string) {
-    this.commentService.deleteComment(id)
-  }
-
 }
