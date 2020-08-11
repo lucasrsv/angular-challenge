@@ -2,7 +2,6 @@ $purple-color: #84087E;
 $gray-color: #515151;
 
 .container {
-    margin: 0% 2%;
     @media (min-width: 768px) {
         margin: 0% 10%;
     }
@@ -51,22 +50,26 @@ button {
 }
 
 .logo {
-    width: 50%;
+    width: 100%;
     background-color: $purple-color;
     background-image: url(../../assets/images/background_grafismos_roxo.svg);
     background-size: cover;
-    float: right;
     height: 100%;
+    @media screen and (min-width:768px) {
+        width: 50%;
+        float: right;
+    }
+
 }
 
-.form-size {
-    width: 50%;
-    padding: 2.5% 5%;
-}
 
 .logo-size {
     width: 50%;
     padding-right: 5%;
+    @media screen and (max-width:768px) {
+        width: 100%;
+        padding-right: 0;
+    }
 }
 
 img {
@@ -74,4 +77,36 @@ img {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10%;
+}
+
+
+.form-size {
+    width: 80%;
+    padding: 2.5% 5%;
+}
+
+
+
+td > p:first-child {
+    font-family: rubik-regular;
+    color: $gray-color;
+}
+
+td > p:nth-child(2) {
+    font-family: rubik-medium;
+    color: $gray-color;;
+}
+
+tr {
+    width: 100%;
+    display: table;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #84087ec2;
+}
+
+button:focus {
+    outline: none;
 }

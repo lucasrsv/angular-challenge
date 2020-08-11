@@ -1,0 +1,38 @@
+<div class="container">
+
+    <div fxLayout.xs="column" fxLayout.md="row">
+        <div fxShow fxHide.gt-sm fxFlex="100" class="logo-size">
+            <div fxLayout="row" fxFlexAlign="end" class="logo">
+                <img  fxFlexAlign="end" src="../../assets/images/logo.svg" />
+            </div>
+        </div>
+
+        <div fxFlex.sm="100" fxFlex.md="50" class="form-size">
+            <h3>Comentários</h3>
+            <form #f="ngForm" novalidate [formGroup]="commentsForm" (ngSubmit)="createComment(f)">
+                <label for="name"><p>Nome</p></label>
+                <input formControlName="author" type="string" class="form-control" id="name" name="nameInput">
+                <label for="comment"><p>Comentário</p></label>
+                <textarea formControlName="comment" type="string" class="form-control" id="comment"></textarea>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+
+        <div fxHide fxShow.gt-sm fxFlex="50" class="logo-size">
+            <div fxLayout="row" fxFlexAlign="end" class="logo">
+                <img  fxFlexAlign="end" src="../../assets/images/logo.svg" />
+            </div>
+        </div>
+    </div>
+        
+    <div class="form-size">
+        <h3>Ultimos Comentários</h3>
+        <tr *ngFor="let comment of comments">
+            <td>
+                <p>{{ comment.comment.comment }}</p>
+                <p>{{ comment.comment.author }} </p>
+            </td>
+        </tr>
+    </div>
+
+</div>
